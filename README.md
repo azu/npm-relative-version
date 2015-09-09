@@ -19,6 +19,7 @@ getRelativeVersion(pkg).then(version => {
     // get -"patch" version
     console.log(version);// 1.0.0
 });
+```
 
 ### getVersionsAsync(pkg): string[]
 
