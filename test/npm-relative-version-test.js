@@ -27,5 +27,15 @@ describe("npm-relative-version", function () {
                 assert.equal(semver.diff(version, currentVersion), "major");
             });
         });
+        context("when not found patch version", function () {
+            it("should search minor version", function () {
+                return getRelativeVersion({
+                    name: "npm",
+                    version: "2.14.0"// not found -patch
+                }).then(version => {
+                    assert.equal(semver.diff(version, currentVersion), "minor");
+                });
+            });
+        })
     });
 });

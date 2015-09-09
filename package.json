@@ -13,6 +13,10 @@
   "version": "1.0.0",
   "description": "get relative version of the modules from npm.",
   "main": "lib/npm-relative-version.js",
+  "files": [
+    "lib",
+    "src"
+  ],
   "directories": {
     "test": "test"
   },

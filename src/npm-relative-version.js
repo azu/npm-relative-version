@@ -2,7 +2,7 @@
 "use strict";
 import npm from "npm";
 import semver from "semver";
-function npmLoad() {
+export function npmLoad() {
     if (npm.config.loaded) {
         return Promise.resolve(npm);
     }
@@ -45,13 +45,20 @@ export function getVersionsAsync(pkg) {
     });
 }
 
+var diffTypes = ["patch", "minor", "major"];
 export function findVersionMatchDiff(currentVersion, versions, diffType) {
-    var matchVersions = versions.filter(version => {
-        if (semver.diff(version, currentVersion) === diffType) {
-            return true;
+    var diffTypeIndex = diffTypes.indexOf(diffType);
+    for (; diffTypeIndex < diffType.length; diffTypeIndex++) {
+        var diffTypeForCheck = diffTypes[diffTypeIndex];
+        var matchVersions = versions.filter(version => {
+            if (semver.diff(version, currentVersion) === diffTypeForCheck) {
+                return true;
+            }
+        });
+        if (matchVersions.length > 0) {
+            return matchVersions[matchVersions.length - 1];
         }
-    });
-    return matchVersions.length > 0 && matchVersions[matchVersions.length - 1];
+    }
 }
 /**
  * get relative version of the package.
