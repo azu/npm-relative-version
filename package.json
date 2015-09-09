@@ -1,0 +1,38 @@
+{
+  "name": "npm-relative-version",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azu/npm-relative-version.git"
+  },
+  "email": "azuciao@gmail.com",
+  "homepage": "https://github.com/azu/npm-relative-version",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/azu/npm-relative-version/issues"
+  },
+  "version": "1.0.0",
+  "description": "get relative version of the modules from npm.",
+  "main": "lib/npm-relative-version.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "babel src --out-dir lib --source-maps",
+    "watch": "babel src --out-dir lib --watch --source-maps",
+    "prepublish": "npm run build",
+    "test": "mocha"
+  },
+  "keywords": [
+    "npm"
+  ],
+  "author": "azu",
+  "dependencies": {
+    "npm": "^2.14.2",
+    "semver": "^5.0.1"
+  },
+  "devDependencies": {
+    "espower-babel": "^3.3.0",
+    "mocha": "^2.3.2",
+    "power-assert": "^1.0.0"
+  }
+}
