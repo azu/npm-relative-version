@@ -67,9 +67,9 @@ export function findVersionMatchDiff(currentVersion, versions, diffType) {
  * @param {object} options
  * @returns {Promise.<T>}
  */
-export function getRelativeVersion(pkg, options = {isLtr: true, type: "patch"}) {
-    var isLtr = options.isLtr;
-    var type = options.type;
+export function getRelativeVersion(pkg, options = {}) {
+    var isLtr = typeof options.isLtr !== "undefined" ? options.isLtr : true;
+    var type = typeof options.type !== "undefined" ? options.type : "path";
     var currentVersion = getVersion(pkg);
     return getVersionsAsync(pkg).then(versions => {
         let indexOfCurrent = versions.indexOf(currentVersion);
