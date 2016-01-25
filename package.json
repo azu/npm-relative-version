@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/azu/npm-relative-version/issues"
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "get relative version of the modules from npm.",
   "main": "lib/npm-relative-version.js",
   "files": [
