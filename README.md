@@ -13,6 +13,7 @@ Get relative version of the modules from npm.
 Get a relative version string of `pkg`.
 
 ```js
+var getRelativeVersion = require("npm-relative-version").getRelativeVersion;
 // pkg.version is 1.0.1
 var pkg = require("./package.json");
 getRelativeVersion(pkg).then(version => {
